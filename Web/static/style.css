@@ -1,0 +1,17 @@
+@keyframes scrollText {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  33.33% {
+    transform: translateY(-100%);
+  }
+  66.66% {
+    transform: translateY(-200%);
+  }
+}
+
+.highlight {
+  background-color: yellow;
+  padding: 0 2px;
+}
+
