@@ -16,9 +16,9 @@
         </a>
         <div class="overflow-hidden h-8 mb-2 text-center mt-2">
             <div class="animate-scrollText">
-                <p class="inline h-8 bg-red-200 cursor-pointer" onclick="setFancySentence(event)">SVB</p>
-                <p class="inline h-8 bg-blue-200 cursor-pointer" onclick="setFancySentence(event)">GPT-4</p>
-                <p class="inline h-8 bg-yellow-200 cursor-pointer" onclick="setFancySentence(event)">Oscar #95</p>
+                <p class="inline h-8 bg-blue-200 cursor-pointer mx-2" onclick="setFancySentence(event)">GPT-4</p>
+                <p class="inline h-8 bg-red-200 cursor-pointer mx-2" onclick="setFancySentence(event)">Silicon Valley Bank</p>
+                <p class="inline h-8 bg-yellow-200 cursor-pointer mx-2" onclick="setFancySentence(event)">95th Oscars</p>
             </div>
         </div>
         <form action="#" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onsubmit="event.preventDefault(); executeSearch()">
@@ -30,6 +30,24 @@
                     </button>
                 </div>
             </div>
+
+            <!-- Wrap the filterContainer in a new div with flex, justify-center, and items-center classes -->
+            <div class="flex justify-center items-center">
+              <div id="filterContainer" class="mb-4 hidden">
+                <label for="filterTimestamps" class="inline-flex items-center">
+                  <span class="mr-2">Timestamps only</span>
+                  <div class="relative">
+                    <input type="checkbox" id="filterTimestamps" class="sr-only" checked />
+                    <div class="toggle-bg w-10 h-4 bg-gray-300 rounded-full shadow-inner transition-all duration-300 ease-in-out"></div>
+                    <div class="toggle-dot absolute w-6 h-6 bg-white rounded-full shadow inset-y-0 left-0 transition-all duration-300 ease-in-out"></div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+
+
+
             <div id="searchResults" class="mt-4"></div>
         </form>
     </div>

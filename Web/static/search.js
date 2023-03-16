@@ -1,18 +1,35 @@
 let currentAudio = null;
 
+function applyFilter(data) {
+  const filterTimestamps = document.getElementById("filterTimestamps");
+  const timestampRegex = /(\d{1,2}:\d{2}(:\d{2})?)/;
+
+  if (filterTimestamps.checked) {
+    data = data.filter((episode) => timestampRegex.test(episode.description));
+  }
+
+  return data;
+}
+
 async function executeSearch() {
   const searchInput = document.getElementById("search");
+  const filterTimestamps = document.getElementById("filterTimestamps");
   const searchResultsDiv = document.getElementById("searchResults");
+  const filterContainer = document.getElementById("filterContainer");
   const query = searchInput.value.trim().toLowerCase();
 
-  const data = await fetchData(query);
+  let data = await fetchData(query);
 
   // Sort episodes by releaseDate in descending order
   data.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
 
+  // Apply the filter
+  data = applyFilter(data);
+
   searchResultsDiv.innerHTML = "";
 
   if (data.length > 0) {
+    filterContainer.classList.remove("hidden");
     data.forEach((episode) => {
       const episodeDiv = document.createElement("div");
       episodeDiv.classList.add("mb-6", "bg-white", "shadow-md", "rounded", "p-4", "flex", "items-start");
@@ -67,6 +84,10 @@ async function executeSearch() {
   } else {
     searchResultsDiv.innerHTML = "No results found.";
   }
+
+    // Add the event listener for the filterTimestamps checkbox
+  filterTimestamps.removeEventListener("change", executeSearch);
+  filterTimestamps.addEventListener("change", executeSearch);
 }
 
 function setFancySentence(event) {
@@ -77,7 +98,7 @@ function setFancySentence(event) {
 
 
 async function fetchData(query) {
-  const apiUrl = `https://itunes.apple.com/search?term=${query}&media=podcast&entity=podcastEpisode&limit=25`;
+  const apiUrl = `https://itunes.apple.com/search?term=${query}&media=podcast&entity=podcastEpisode&limit=100`;
   const response = await fetch(apiUrl);
   const data = await response.json();
   return data.results;
@@ -128,6 +149,11 @@ function scrollToTop() {
     behavior: "smooth",
   });
 }
+
+// Wrap this code inside a window.onload event
+window.onload = function () {
+  document.getElementById("filterTimestamps").addEventListener("change", executeSearch);
+};
 
 
 
