@@ -1,53 +1,105 @@
-function executeSearch() {
+async function executeSearch() {
   const searchInput = document.getElementById("search");
   const searchResultsDiv = document.getElementById("searchResults");
   const query = searchInput.value.trim().toLowerCase();
 
-  const data = [
-    "@Alex Adamov: GPT 4 is definitely another level. GPT 3 struggled with the spatial awareness of objects after changes. This one will find your keys in the near future!",
-    "@Lord Victor: GPT-4 may be able to appear almost human in its speech but that will never change my opinion about speaking to objects.",
-    "@Conor: I dumped a live Ethereum contract into GPT-4. In an instant, it highlighted a number of security vulnerabilities and pointed out surface areas where the contract could be exploited. It then verified a specific way I could exploit the contract",
-    "@Fireship: GPT-4 just made coding tutorials obsolete\ncan handle 25K input words\nso feed it all official docs for some lib\nask for a \"step-by-step guide to build X\" \nwrites perfect tutorialfuck",
-  ];
-
-  const results = data.filter((item) => item.toLowerCase().includes(query));
+  const data = await fetchData(query);
 
   searchResultsDiv.innerHTML = "";
 
-  if (results.length > 0) {
-    results.forEach((result) => {
-      const resultDiv = document.createElement("div");
-      resultDiv.classList.add("mb-2");
+  if (data.length > 0) {
+    data.forEach((episode) => {
+      const episodeDiv = document.createElement("div");
+      episodeDiv.classList.add("mb-6", "bg-white", "shadow-md", "rounded", "p-4", "flex", "items-start");
 
-      // Find the start and end indices of the matched text
-      const startIndex = result.toLowerCase().indexOf(query);
-      const endIndex = startIndex + query.length;
+      const coverImage = document.createElement("img");
+      coverImage.src = episode.artworkUrl600 || episode.artworkUrl100 || episode.artworkUrl60 || episode.artworkUrl30;
+      coverImage.alt = `${episode.trackName} cover image`;
+      coverImage.classList.add("w-20", "h-20", "mr-4");
 
-      // Split the result into three parts: before, matched, and after the query
-      const beforeMatch = result.slice(0, startIndex);
-      const match = result.slice(startIndex, endIndex);
-      const afterMatch = result.slice(endIndex);
+      const contentDiv = document.createElement("div");
 
-      // Create the highlighted matched text
-      const mark = document.createElement("mark");
-      mark.classList.add("highlight");
-      mark.textContent = match;
+      const titleLink = document.createElement("a");
+      titleLink.href = episode.collectionViewUrl;
+      titleLink.target = "_blank";
+      titleLink.classList.add("text-blue-600", "hover:text-blue-800");
 
-      // Append the parts of the result to the resultDiv
-      resultDiv.appendChild(document.createTextNode(beforeMatch));
-      resultDiv.appendChild(mark);
-      resultDiv.appendChild(document.createTextNode(afterMatch));
+      const title = document.createElement("h2");
+      title.innerHTML = highlightMatches(episode.trackName, query);
+      title.classList.add("text-lg", "font-bold", "mb-2");
 
-      searchResultsDiv.appendChild(resultDiv);
+      titleLink.appendChild(title);
+      contentDiv.appendChild(titleLink);
+
+      const artist = document.createElement("p");
+      artist.textContent = `Producer: ${episode.collectionName}`;
+      artist.classList.add("text-sm", "mb-2");
+
+      const releaseDate = new Date(episode.releaseDate);
+      const formattedDate = releaseDate.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+
+      const date = document.createElement("p");
+      date.textContent = `Date: ${formattedDate}`;
+      date.classList.add("text-sm", "mb-2");
+
+      const description = document.createElement("p");
+      description.innerHTML = highlightMatches(linkTimestamps(episode.description), query);
+      description.classList.add("text-sm");
+
+      contentDiv.appendChild(artist);
+      contentDiv.appendChild(date);
+      contentDiv.appendChild(description);
+
+      episodeDiv.appendChild(coverImage);
+      episodeDiv.appendChild(contentDiv);
+
+      searchResultsDiv.appendChild(episodeDiv);
     });
   } else {
     searchResultsDiv.innerHTML = "No results found.";
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
 function setFancySentence(event) {
   const sentence = event.target.innerText;
   const searchInput = document.getElementById("search");
   searchInput.value = sentence;
 }
+
+
+async function fetchData(query) {
+  const apiUrl = `https://itunes.apple.com/search?term=${query}&media=podcast&entity=podcastEpisode&limit=25`;
+  const response = await fetch(apiUrl);
+  const data = await response.json();
+  return data.results;
+}
+
+
+function highlightMatches(text, query) {
+  const regex = new RegExp(`(${query})`, 'gi');
+  const highlightedText = text.replace(regex, '<mark class="bg-yellow-300">$1</mark>');
+  return highlightedText;
+}
+
+function linkTimestamps(text) {
+  const regex = /(\d{1,2}:\d{2}(:\d{2})?)/g;
+  const linkedText = text.replace(regex, '<br><a href="#$1" class="text-blue-600 hover:text-blue-800">$1</a>');
+  return linkedText;
+}
+
 
