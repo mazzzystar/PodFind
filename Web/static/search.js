@@ -1,9 +1,14 @@
+let currentAudio = null;
+
 async function executeSearch() {
   const searchInput = document.getElementById("search");
   const searchResultsDiv = document.getElementById("searchResults");
   const query = searchInput.value.trim().toLowerCase();
 
   const data = await fetchData(query);
+
+  // Sort episodes by releaseDate in descending order
+  data.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
 
   searchResultsDiv.innerHTML = "";
 
@@ -47,7 +52,7 @@ async function executeSearch() {
       date.classList.add("text-sm", "mb-2");
 
       const description = document.createElement("p");
-      description.innerHTML = highlightMatches(linkTimestamps(episode.description), query);
+      description.innerHTML = highlightMatches(linkTimestamps(episode.description, episode.previewUrl), query);
       description.classList.add("text-sm");
 
       contentDiv.appendChild(artist);
@@ -63,17 +68,6 @@ async function executeSearch() {
     searchResultsDiv.innerHTML = "No results found.";
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 function setFancySentence(event) {
   const sentence = event.target.innerText;
@@ -96,10 +90,45 @@ function highlightMatches(text, query) {
   return highlightedText;
 }
 
-function linkTimestamps(text) {
+function linkTimestamps(text, audioUrl) {
   const regex = /(\d{1,2}:\d{2}(:\d{2})?)/g;
-  const linkedText = text.replace(regex, '<br><a href="#$1" class="text-blue-600 hover:text-blue-800">$1</a>');
+  const linkedText = text.replace(regex, (match, timestamp) => {
+    return `<br><a href="#" onclick="event.preventDefault(); playEpisodeAtTimestamp('${audioUrl}', '${timestamp}');" class="text-blue-600 hover:text-blue-800">${timestamp}</a>`;
+  });
   return linkedText;
 }
+
+
+function playEpisodeAtTimestamp(audioUrl, timestamp) {
+  if (currentAudio) {
+    currentAudio.pause();
+  }
+
+  currentAudio = new Audio(audioUrl);
+  const timeParts = timestamp.split(":");
+  let seconds = 0;
+
+  if (timeParts.length === 3) {
+    seconds += parseInt(timeParts[0]) * 3600;
+    seconds += parseInt(timeParts[1]) * 60;
+    seconds += parseInt(timeParts[2]);
+  } else if (timeParts.length === 2) {
+    seconds += parseInt(timeParts[0]) * 60;
+    seconds += parseInt(timeParts[1]);
+  }
+
+  currentAudio.currentTime = seconds;
+  currentAudio.play();
+}
+
+// Add this code to the bottom of your JavaScript code
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+
+
 
 

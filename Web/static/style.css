@@ -15,3 +15,9 @@
   padding: 0 2px;
 }
 
+#scrollToTop {
+font-size: 2rem;
+}
+#scrollToTop:hover {
+color: #111;
+}
