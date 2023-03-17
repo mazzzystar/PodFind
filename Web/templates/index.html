@@ -20,7 +20,7 @@
                 <p class="inline h-8 bg-yellow-200 cursor-pointer mx-2" onclick="setFancySentence(event)">95th Oscars</p>
             </div>
         </div>
-        <form action="#" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onsubmit="event.preventDefault(); executeSearch()">
+        <form action="#" method="POST" class="bg-white shadow-md rounded px-4 sm:px-8 pt-6 pb-8 mb-4" onsubmit="event.preventDefault(); executeSearch()">
             <div class="mb-4">
                 <div class="flex items-center border-b border-b-2 border-teal-500 py-2">
                     <input type="text" name="search" id="search" placeholder="Any hot event keywords..." class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none">
@@ -31,20 +31,21 @@
             </div>
 
             <div class="flex justify-center items-center">
-              <div id="filterContainer" class="mb-4 hidden">
-                <label for="filterTimestamps" class="inline-flex items-center">
-                  <span class="mr-2">Timestamps only</span>
-                  <div class="relative">
-                    <input type="checkbox" id="filterTimestamps" class="sr-only" checked />
-                    <div class="toggle-bg w-10 h-4 bg-gray-300 rounded-full shadow-inner transition-all duration-300 ease-in-out"></div>
-                    <div class="toggle-dot absolute w-6 h-6 bg-white rounded-full shadow inset-y-0 left-0 transition-all duration-300 ease-in-out"></div>
-                  </div>
-                </label>
-              </div>
+                <div id="filterContainer" class="mb-4 hidden">
+                    <label for="filterTimestamps" class="inline-flex items-center">
+                        <span class="mr-2">Timestamps only</span>
+                        <div class="relative">
+                            <input type="checkbox" id="filterTimestamps" class="sr-only" checked />
+                            <div class="toggle-bg w-10 h-4 bg-gray-300 rounded-full shadow-inner transition-all duration-300 ease-in-out"></div>
+                            <div class="toggle-dot absolute w-6 h-6 bg-white rounded-full shadow inset-y-0 left-0 transition-all duration-300 ease-in-out"></div>
+                        </div>
+                    </label>
+                </div>
             </div>
 
             <div id="searchResults" class="mt-4"></div>
         </form>
+
     </div>
 
     <!-- Add this line right before the closing </body> tag -->
