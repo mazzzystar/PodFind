@@ -28,6 +28,13 @@ async function executeSearch() {
 
   searchResultsDiv.innerHTML = "";
 
+  // Check if there are no results when the Timestamp filter is on
+  if (data.length === 0 && filterTimestamps.checked) {
+    // Turn off the Timestamp filter and apply the filter again
+    filterTimestamps.checked = false;
+    data = applyFilter(await fetchData(query));
+  }
+
   if (data.length > 0) {
     filterContainer.classList.remove("hidden");
     data.forEach((episode) => {
