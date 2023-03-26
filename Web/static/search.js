@@ -76,6 +76,21 @@ async function executeSearch() {
       contentDiv.appendChild(date);
       contentDiv.appendChild(description);
 
+      const transcribeButton = document.createElement("button");
+      transcribeButton.textContent = "Transcribe";
+      transcribeButton.classList.add("mt-2", "bg-green-500", "text-white", "px-3", "py-2", "rounded");
+      transcribeButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        const existingTranscribeMessage = contentDiv.querySelector(".transcribe-message");
+        if (!existingTranscribeMessage) {
+          const transcribeMessage = document.createElement("p");
+          transcribeMessage.textContent = "Will add Whisper support later";
+          transcribeMessage.classList.add("text-sm", "mt-2", "transcribe-message");
+          contentDiv.appendChild(transcribeMessage);
+        }
+      });
+      contentDiv.appendChild(transcribeButton);
+
       episodeDiv.appendChild(coverImage);
       episodeDiv.appendChild(contentDiv);
 
