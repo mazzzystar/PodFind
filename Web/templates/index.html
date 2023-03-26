@@ -30,16 +30,21 @@
         <div class="overflow-hidden h-8 mb-2 text-center mt-2">
             <div class="animate-scrollText">
                 <p class="inline h-8 bg-blue-200 cursor-pointer mx-2" onclick="setFancySentence(event)">GPT-4</p>
+                <p class="inline h-8 bg-purple-100 cursor-pointer mx-2" onclick="setFancySentence(event)">Sam Altman</p>
                 <p class="inline h-8 bg-red-200 cursor-pointer mx-2" onclick="setFancySentence(event)">Silicon Valley Bank</p>
                 <p class="inline h-8 bg-yellow-200 cursor-pointer mx-2" onclick="setFancySentence(event)">Shou Zi Chew</p>
+                <p class="inline h-8 bg-gray-100 cursor-pointer mx-2" onclick="setFancySentence(event)">杨紫琼</p>
             </div>
         </div>
         <form action="#" method="POST" class="bg-white shadow-md rounded px-4 sm:px-8 pt-6 pb-8 mb-4" onsubmit="event.preventDefault(); executeSearch()">
             <div class="mb-4">
                 <div class="flex items-center border-b border-b-2 border-teal-500 py-2">
                     <input type="text" name="search" id="search" placeholder="Any hot event keywords..." class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none">
-                    <button type="submit" class="inline-flex items-center px-3 py-1 border rounded text-white bg-black border-black hover:bg-gray-800 hover:border-gray-800">
-                        <span>Search</span>
+                    <button type="submit" id="searchButton" class="inline-flex items-center px-3 py-1 border rounded text-white bg-black border-black hover:bg-gray-800 hover:border-gray-800">
+                        <span id="searchButtonText">Search</span>
+                        <span id="searchButtonProgress" class="hidden">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </span>
                     </button>
                 </div>
             </div>

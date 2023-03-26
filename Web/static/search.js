@@ -12,11 +12,20 @@ function applyFilter(data) {
 }
 
 async function executeSearch() {
+  const searchButton = document.getElementById("searchButton");
+  const searchButtonText = document.getElementById("searchButtonText");
+  const searchButtonProgress = document.getElementById("searchButtonProgress");
+
   const searchInput = document.getElementById("search");
   const filterTimestamps = document.getElementById("filterTimestamps");
   const searchResultsDiv = document.getElementById("searchResults");
   const filterContainer = document.getElementById("filterContainer");
   const query = searchInput.value.trim().toLowerCase();
+
+  // Disable the button and show the progress indicator
+  searchButton.disabled = true;
+  searchButtonText.classList.add("hidden");
+  searchButtonProgress.classList.remove("hidden");
 
   let data = await fetchData(query);
 
@@ -107,7 +116,12 @@ async function executeSearch() {
     searchResultsDiv.innerHTML = "No results found.";
   }
 
-    // Add the event listener for the filterTimestamps checkbox
+  // Re-enable the button and hide the progress indicator
+  searchButton.disabled = false;
+  searchButtonText.classList.remove("hidden");
+  searchButtonProgress.classList.add("hidden");
+
+  // Add the event listener for the filterTimestamps checkbox
   filterTimestamps.removeEventListener("change", executeSearch);
   filterTimestamps.addEventListener("change", executeSearch);
 }
