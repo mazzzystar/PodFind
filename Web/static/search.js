@@ -94,7 +94,7 @@ async function executeSearch() {
 
       const transcribeButton = document.createElement("button");
       transcribeButton.textContent = "Transcribe";
-      transcribeButton.classList.add("mt-2", "bg-green-500", "text-white", "px-3", "py-2", "rounded");
+      transcribeButton.classList.add("mt-2", "bg-black", "text-white", "px-3", "py-2", "rounded");
       transcribeButton.addEventListener("click", (e) => {
         e.preventDefault();
         const existingTranscribeMessage = contentDiv.querySelector(".transcribe-message");
