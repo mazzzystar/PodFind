@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About PodFind</title>
+    <link href="static/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="icon" type="image/png" href="static/favicon.png" />
+
+    <style>
+      .title {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .colored-text {
+        display: inline;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+
+      .colored-text span {
+        display: inline;
+      }
+
+      .c1 { color: #C1328E; }
+      .c2 { color: #FBE251; }
+      .c3 { color: #0000FF; }
+      .c4 { color: #F75C2F; }
+
+      .donate-button {
+        font-size: 1.2rem;
+        padding: 12px 24px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 1rem;
+      }
+
+      .donate-button:hover {
+        background-color: #333;
+      }
+
+      .content-box {
+        background-color: #fff;
+        color: #000;
+        padding: 0.5rem;
+        border-radius: 5px;
+        box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.08);
+        margin-bottom: 1.5rem;
+      }
+
+      ul {
+        list-style-type: disc;
+        padding-left: 1rem;
+      }
+
+    blockquote {
+        border-left: 4px solid #00AA90;
+        padding-left: 1rem;
+        margin: 1rem 0;
+        font-style: italic;
+        color: #333;
+        font-size: 1.2em;
+    }
+
+    #server-cost {
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: inline-block;
+      padding: 0 5px;
+      border-radius: 5px;
+      background-color: #FBE251;
+      color: #000;
+    }
+
+    </style>
+
+</head>
+<body class="bg-gradient-to-r from-green-200 via-green-300 to-green-400 min-h-screen flex flex-col">
+    <div class="title">
+        <a href="/"> PodFind<span class="colored-text"><span class="c1">.</span><span class="c2">x</span><span class="c3">y</span><span class="c4">z</span></span></a>
+    </div>
+
+<div class="container mx-auto px-4 sm:px-6 md:px-8 max-w-3xl py-8">
+    <div class="content-box">
+        <h2 class="text-2xl font-semibold mb-4">1. Initial intention</h2>
+        <p class="mb-4">
+            <blockquote>
+                PodFind.xyz is not designed to be a podcast search engine.
+            </blockquote>
+            In fact, I would prefer it to be helping you gain new awareness. You can:
+            <ul>
+                <li> Search for any keywords to know what Podcasters thoughts on a person, or an event.</li>
+                <li>Click on timestamps get a bird's-eye view of how KOLs view and judge new events, such as Musk acquiring Twitter, Silicon Valley Bank, GPT-4, and more.</li>
+            </ul>
+        </p>
+    </div>
+
+
+    <div class="content-box">
+        <h2 class="text-2xl font-semibold mb-4">2. Why choose podcasts</h2>
+        <p class="mb-4">In terms of format, podcasts require recording equipment and multi-person conversations, which act as a filter and also provide possibilities for in-depth viewpoint exchanges. Therefore, I tend to believe that the signal-to-noise ratio(<bold>SNR</bold>) of podcasts is higher.</p>
+    </div>
+
+    <div class="content-box">
+        <h2 class="text-2xl font-semibold mb-4">3. Free to use?</h2>
+        <p class="mb-4">
+            Yes! It's purely for fun. If server costs increase, I'll accept donations to keep it alive longer.
+        </p>
+    </div>
+
+    <div class="content-box">
+        <h2 class="text-2xl font-semibold mb-4">4. Future plans</h2>
+        <p class="mb-4">This version is too basic. Many audio files don't have timestamps. In the future, I'll add <a href="https://github.com/openai/whisper" style="color:#ED784A;">Whisper</a> to build a timeline for each episode, so you can search for any keywords and directly listen to relevant segments.</p>
+        <p>Anyway, have fun!</p>
+    </div>
+
+    <p class="mb-6 text-center">Server cost so far: <span id="server-cost"></span></p>
+
+    <div class="text-center">
+        <a href="https://www.paypal.me/immazzystar/" class="donate-button">Donate</a>
+    </div>
+</div>
+</body>
+</html>
+
+<script>
+    function calculateServerCost() {
+        const startDate = new Date("2023-03-15");
+        const dailyCost = 0.26;
+        const now = new Date();
+        const differenceInTime = now.getTime() - startDate.getTime();
+        const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24));
+
+        const totalCost = (differenceInDays * dailyCost).toFixed(2);
+        document.getElementById("server-cost").innerHTML = "$"+totalCost;
+    }
+
+    // Call the function when the page loads
+    window.addEventListener("load", calculateServerCost);
+</script>
