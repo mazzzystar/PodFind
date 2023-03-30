@@ -64,7 +64,7 @@ async function executeSearch() {
 
       const title = document.createElement("h2");
       title.innerHTML = highlightMatches(episode.trackName, query);
-      title.classList.add("text-lg", "font-bold", "mb-2");
+      title.classList.add("text-lg", "font-bold", "mb-2", "overflow-wrap-anywhere");
 
       titleLink.appendChild(title);
       contentDiv.appendChild(titleLink);
@@ -86,7 +86,7 @@ async function executeSearch() {
 
       const description = document.createElement("p");
       description.innerHTML = highlightMatches(linkTimestamps(episode.description, episode.previewUrl), query);
-      description.classList.add("text-sm");
+      description.classList.add("text-sm", "overflow-wrap-anywhere");
 
       contentDiv.appendChild(artist);
       contentDiv.appendChild(date);
@@ -150,11 +150,30 @@ function highlightMatches(text, query) {
 function linkTimestamps(text, audioUrl) {
   const regex = /(\d{1,2}:\d{2}(:\d{2})?)/g;
   const linkedText = text.replace(regex, (match, timestamp) => {
-    return `<br><a href="#" onclick="event.preventDefault(); playEpisodeAtTimestamp('${audioUrl}', '${timestamp}');" class="text-blue-600 hover:text-blue-800">${timestamp}</a>`;
+    // Normalize timestamp format
+    const normalizedTimestamp = normalizeTimestamp(timestamp);
+
+    return `<br><a href="#" onclick="event.preventDefault(); playEpisodeAtTimestamp('${audioUrl}', '${normalizedTimestamp}');" class="text-blue-600 hover:text-blue-800">${normalizedTimestamp}</a>`;
   });
   return linkedText;
 }
 
+function normalizeTimestamp(timestamp) {
+  const timeParts = timestamp.split(":");
+
+  if (timeParts.length === 3) {
+    const hours = String(timeParts[0]).padStart(2, "0");
+    const minutes = String(timeParts[1]).padStart(2, "0");
+    const seconds = String(timeParts[2]).padStart(2, "0");
+    return `${hours}:${minutes}:${seconds}`;
+  } else if (timeParts.length === 2) {
+    const minutes = String(timeParts[0]).padStart(2, "0");
+    const seconds = String(timeParts[1]).padStart(2, "0");
+    return `${minutes}:${seconds}`;
+  }
+
+  return timestamp;
+}
 
 function playEpisodeAtTimestamp(audioUrl, timestamp) {
   if (currentAudio) {
