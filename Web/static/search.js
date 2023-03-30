@@ -85,7 +85,8 @@ async function executeSearch() {
       date.classList.add("text-sm", "mb-2");
 
       const description = document.createElement("p");
-      description.innerHTML = highlightMatches(linkTimestamps(episode.description, episode.previewUrl), query);
+      const truncatedDescriptionText = truncateBeforeTimestamp(episode.description, 4);
+      description.innerHTML = highlightMatches(linkTimestamps(truncatedDescriptionText, episode.previewUrl), query);
       description.classList.add("text-sm", "overflow-wrap-anywhere");
 
       contentDiv.appendChild(artist);
@@ -173,6 +174,33 @@ function normalizeTimestamp(timestamp) {
   }
 
   return timestamp;
+}
+
+function truncateBeforeTimestamp(description, maxLines) {
+  const regex = /(\d{1,2}:\d{2}(:\d{2})?)/;
+  const lines = description.split('\n');
+  let truncatedDescription = '';
+  let lineCount = 0;
+  let timestampFound = false;
+
+  for (const line of lines) {
+    if (regex.test(line)) {
+      timestampFound = true;
+    }
+
+    if (!timestampFound) {
+      if (lineCount < maxLines) {
+        truncatedDescription += line + '\n';
+        lineCount++;
+      } else {
+        truncatedDescription += '\n';
+      }
+    } else {
+      truncatedDescription += line + '\n';
+    }
+  }
+
+  return truncatedDescription.trim();
 }
 
 function playEpisodeAtTimestamp(audioUrl, timestamp) {
