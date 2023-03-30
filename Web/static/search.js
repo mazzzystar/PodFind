@@ -233,6 +233,23 @@ function scrollToTop() {
   });
 }
 
+function setScrollTextLanguage() {
+    const userLang = navigator.language || navigator.userLanguage;
+    const scrollTextDiv = document.querySelector(".scrollText");
+
+    if (userLang.startsWith("zh")) {
+        scrollTextDiv.innerHTML = `
+            <p class="inline h-8 bg-blue-200 cursor-pointer mx-2" onclick="setFancySentence(event)">GPT-4</p>
+            <p class="inline h-8 bg-purple-100 cursor-pointer mx-2" onclick="setFancySentence(event)">硅谷银行</p>
+            <p class="inline h-8 bg-yellow-200 cursor-pointer mx-2" onclick="setFancySentence(event)">杨紫琼</p>
+            <p class="inline h-8 bg-red-200 cursor-pointer mx-2" onclick="setFancySentence(event)">AIGC</p>
+            <p class="inline h-8 bg-gray-100 cursor-pointer mx-2" onclick="setFancySentence(event)">长衫</p>
+        `;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", setScrollTextLanguage);
+
 // Wrap this code inside a window.onload event
 window.onload = function () {
   document.getElementById("filterTimestamps").addEventListener("change", executeSearch);
