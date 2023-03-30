@@ -243,7 +243,7 @@ function setScrollTextLanguage() {
             <p class="inline h-8 bg-purple-100 cursor-pointer mx-2" onclick="setFancySentence(event)">硅谷银行</p>
             <p class="inline h-8 bg-yellow-200 cursor-pointer mx-2" onclick="setFancySentence(event)">杨紫琼</p>
             <p class="inline h-8 bg-red-200 cursor-pointer mx-2" onclick="setFancySentence(event)">AIGC</p>
-            <p class="inline h-8 bg-gray-100 cursor-pointer mx-2" onclick="setFancySentence(event)">长衫</p>
+            <p class="inline h-8 bg-gray-100 cursor-pointer mx-2" onclick="setFancySentence(event)">最后生还者</p>
         `;
     }
 }
