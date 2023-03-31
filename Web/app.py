@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
@@ -11,6 +11,13 @@ def about():
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/log', methods=['POST'])
+def log_to_server():
+    message = request.json.get('message', '')
+    print(message)  # Log the message to the console
+    return jsonify(success=True)  # Return success status
 
 
 if __name__ == '__main__':

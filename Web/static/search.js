@@ -22,6 +22,12 @@ async function executeSearch() {
   const filterContainer = document.getElementById("filterContainer");
   const query = searchInput.value.trim().toLowerCase();
 
+  // Log the search query to the server
+  const now = new Date();
+  const formattedDateTime = now.toLocaleString();
+  const logMessage = `[${formattedDateTime}] User query: ${query}`;
+  logToServer(logMessage);
+
   // Disable the button and show the progress indicator
   searchButton.disabled = true;
   searchButtonText.classList.add("hidden");
@@ -141,6 +147,27 @@ async function fetchData(query) {
   return data.results;
 }
 
+function logToServer(message) {
+    fetch('/log', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            message: message
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (!data.success) {
+            console.error('Error logging message to server');
+        }
+    })
+    .catch(error => {
+        console.error('Error logging message to server:', error);
+    });
+}
+
 
 function highlightMatches(text, query) {
   const regex = new RegExp(`(${query})`, 'gi');
@@ -240,7 +267,7 @@ function setScrollTextLanguage() {
     if (userLang.startsWith("zh")) {
         scrollTextDiv.innerHTML = `
             <p class="inline h-8 bg-blue-200 cursor-pointer mx-2" onclick="setFancySentence(event)">GPT-4</p>
-            <p class="inline h-8 bg-purple-100 cursor-pointer mx-2" onclick="setFancySentence(event)">硅谷银行</p>
+            <p class="inline h-8 bg-purple-100 cursor-pointer mx-2" onclick="setFancySentence(event)">数字游民</p>
             <p class="inline h-8 bg-yellow-200 cursor-pointer mx-2" onclick="setFancySentence(event)">杨紫琼</p>
             <p class="inline h-8 bg-red-200 cursor-pointer mx-2" onclick="setFancySentence(event)">AIGC</p>
             <p class="inline h-8 bg-gray-100 cursor-pointer mx-2" onclick="setFancySentence(event)">最后生还者</p>
