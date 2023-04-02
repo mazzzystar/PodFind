@@ -260,9 +260,13 @@ function scrollToTop() {
   });
 }
 
-function setScrollTextLanguage() {
+function setTextLanguage() {
     const userLang = navigator.language || navigator.userLanguage;
     const scrollTextDiv = document.querySelector(".scrollText");
+    const h1Title = document.querySelector("h1");
+    const aboutLink = document.querySelector("a[href$='about']");
+    const pageTitle = document.querySelector("title");
+    const footerText = document.querySelector("footer p.text-sm.text-gray-500");
 
     if (userLang.startsWith("zh")) {
         scrollTextDiv.innerHTML = `
@@ -272,10 +276,16 @@ function setScrollTextLanguage() {
             <p class="inline h-8 bg-red-200 cursor-pointer mx-2" onclick="setFancySentence(event)">AIGC</p>
             <p class="inline h-8 bg-gray-100 cursor-pointer mx-2" onclick="setFancySentence(event)">最后生还者</p>
         `;
+
+        // Change the h1 title, About link text, and page title to Chinese
+        h1Title.textContent = "Podcaster们怎么看...";
+        aboutLink.textContent = "关于";
+        pageTitle.textContent = "PodFind - 汇聚观点";
+        footerText.textContent = "此项目中的每一行代码均由 GPT-4 生成。";
     }
 }
 
-document.addEventListener("DOMContentLoaded", setScrollTextLanguage);
+document.addEventListener("DOMContentLoaded", setTextLanguage);
 
 // Wrap this code inside a window.onload event
 window.onload = function () {

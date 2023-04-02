@@ -27,8 +27,8 @@
 
       .c1 { color: #C1328E; }
       .c2 { color: #FBE251; }
-      .c3 { color: #0000FF; }
-      .c4 { color: #F75C2F; }
+      .c3 { color: #00896C; }
+      .c4 { color: #2EA9DF; }
 
       .donate-button {
         font-size: 1.2rem;
@@ -114,7 +114,7 @@
             <blockquote>
                 PodFind.xyz is not designed to be a podcast search engine.
             </blockquote>
-            In fact, I would prefer it to be helping you gain new awareness. You can:
+            <p class="mb-2 designed-for">In fact, I would prefer it to be helping you gain new awareness. You can:</p>
             <ul>
                 <li>Search for any keywords to know what Podcasters thoughts on a new thing, or an event, such as Silicon Valley Bank, GPT-4, and more.</li>
                 <li>Click on timestamps get a bird's-eye view of how KOLs view and judge new events.</li>
@@ -122,19 +122,21 @@
         </p>
 
         <h2 class="text-xl font-semibold mb-4">2. Why choose podcasts</h2>
-        <p class="mb-2">In terms of format, podcasts require recording equipment and multi-person conversations, which act as a filter and also provide possibilities for in-depth viewpoint exchanges. Therefore, I tend to believe that the signal-to-noise ratio(<bold>SNR</bold>) of podcasts is higher.</p>
+        <p class="mb-2 why-podcast">In terms of format, podcasts require recording equipment and multi-person conversations, which act as a filter and also provide possibilities for in-depth viewpoint exchanges. Therefore, I tend to believe that the signal-to-noise ratio(<bold>SNR</bold>) of podcasts is higher.</p>
 
         <h2 class="text-xl font-semibold mb-4">3. Free to use?</h2>
-        <p class="mb-2">
-            Yes! It's purely for fun. If server costs increase, I'll accept donations to keep it alive longer.
+        <p class="mb-2 pure-free">
+            Yes! It's purely for fun. Your donation will keep this site alive a little longer.
         </p>
 
         <h2 class="text-xl font-semibold mb-4">4. Future plans</h2>
-        <p class="mb-2">Many audio files don't have timestamps. In the future, I'll add <a href="https://github.com/openai/whisper" style="color:#ED784A;">Whisper</a> to build timestamp for every episode, so you can directly listen to relevant segments.</p>
-        <p>Anyway, have fun!</p>
+        <p class="mb-2 future-plan">Many audio files don't have timestamps. In the future(if funds are available), I'll add <a href="https://github.com/openai/whisper" style="color:#ED784A;">Whisper</a> to build timestamp for every episode, so you can directly listen to relevant segments.</p>
+        <p class="mb-2 have-fun">Anyway, have fun!</p>
     </div>
 
-    <p class="mb-4 text-center">Server cost so far: <span id="server-cost"></span></p>
+    <p class="mb-4 text-center">
+      Server cost so far: <span id="server-cost"></span>
+    </p>
 
     <div class="text-center">
         <button onclick="showDonationOptions()" class="donate-button">Donate</button>
