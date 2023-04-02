@@ -80,6 +80,24 @@
       color: #000;
     }
 
+    .donation-methods {
+      display: none;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .donation-methods a {
+      display: inline-block;
+      margin: 0 1rem;
+      text-decoration: underline;
+    }
+
+    .qr-code {
+      display: none;
+      max-width: 400px; /* Adjust this value to resize the QR code image */
+      margin: 1rem auto;
+    }
+
     </style>
 
 </head>
@@ -117,8 +135,18 @@
     <p class="mb-4 text-center">Server cost so far: <span id="server-cost"></span></p>
 
     <div class="text-center">
-        <a href="https://www.paypal.me/immazzystar/" class="donate-button">Donate</a>
+        <button onclick="showDonationOptions()" class="donate-button">Donate</button>
     </div>
+
+    <div id="donation-methods" class="donation-methods">
+        <a href="https://www.paypal.me/immazzystar/" target="_blank">Paypal</a>
+        <a href="#" onclick="showQRCode('alipay-qr')">Alipay</a>
+    </div>
+
+    <div class="text-center">
+        <img id="alipay-qr" class="qr-code" src="static/QRCode/AlipayQRCode.jpg" alt="Alipay QR Code">
+    </div>
+
 </div>
 </body>
 </html>
@@ -126,13 +154,61 @@
 <script>
     function calculateServerCost() {
         const startDate = new Date("2023-03-15");
-        const dailyCost = 1.75;
+        const dailyCost = 3.03;
         const now = new Date();
         const differenceInTime = now.getTime() - startDate.getTime();
         const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24));
 
         const totalCost = (differenceInDays * dailyCost).toFixed(2);
         document.getElementById("server-cost").innerHTML = "$"+totalCost;
+    }
+
+    function showDonationOptions() {
+    const donationMethods = document.getElementById("donation-methods");
+    donationMethods.style.display = "block";
+    }
+
+    function showQRCode(id) {
+        const qrCodeElements = document.querySelectorAll(".qr-code");
+        qrCodeElements.forEach((element) => {
+            element.style.display = "none";
+        });
+
+        const qrCodeToShow = document.getElementById(id);
+        qrCodeToShow.style.display = "block";
+    }
+
+    function showQRCode(id) {
+        const qrCodeElements = document.querySelectorAll(".qr-code");
+        qrCodeElements.forEach((element) => {
+            element.style.display = "none";
+        });
+
+        const qrCodeToShow = document.getElementById(id);
+        qrCodeToShow.style.display = "block";
+
+        // Add a slight delay before scrolling
+        setTimeout(() => {
+            // Calculate the position to scroll to
+            const scrollToPosition = qrCodeToShow.getBoundingClientRect().top + window.pageYOffset - (window.innerHeight / 2);
+
+            // Scroll to the displayed QR code
+            window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
+        }, 100); // 100ms delay
+    }
+
+    function showDonationOptions() {
+        const donationMethods = document.getElementById("donation-methods");
+        donationMethods.style.display = "block";
+
+        // Add a slight delay before scrolling
+        setTimeout(() => {
+            // Calculate the position to scroll to
+            const scrollToPosition = donationMethods.getBoundingClientRect().top + window.pageYOffset - (window.innerHeight / 2);
+
+            // Scroll to the donation methods
+            window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
+        }, 100); // 100ms delay
     }
 
     // Call the function when the page loads
