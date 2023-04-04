@@ -275,6 +275,7 @@ function setTextLanguage() {
     const aboutLink = document.querySelector("a[href$='about']");
     const pageTitle = document.querySelector("title");
     const footerText = document.querySelector("footer p.text-sm.text-gray-500");
+    const timestampsOnlyText = document.getElementById("timestampsOnlyText");
 
     if (userLang.startsWith("zh")) {
         scrollTextDiv.innerHTML = `
@@ -290,6 +291,7 @@ function setTextLanguage() {
         aboutLink.textContent = "捐赠";
         pageTitle.textContent = "PodFind - 汇聚观点";
         footerText.textContent = "此项目中的每一行代码均由 GPT-4 生成。";
+        timestampsOnlyText.textContent = "有时间戳";
     }
 }
 
