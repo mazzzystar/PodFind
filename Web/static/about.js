@@ -130,8 +130,12 @@ function translateAboutPage() {
                 }
             },
             {
-                selector: ".donate-button",
+                selector: "#donation-message",
                 text: "捐赠"
+            },
+            {
+                selector: "#alipay-qr",
+                alt: "支付宝二维码"
             },
             {
                 selector: "#donation-methods a:nth-of-type(1)",
@@ -170,6 +174,19 @@ function translateAboutPage() {
         calculateServerCost();
     } else {
         calculateServerCost();
+    }
+
+    updateDonationMessage();
+}
+
+function updateDonationMessage() {
+    const lang = navigator.language || navigator.userLanguage;
+    const message = document.getElementById('donation-message');
+
+    if (lang.startsWith('zh')) {
+        message.innerHTML = '如果你捐款，请务必<a href="mailto:myfancoo@gmail.com">邮件</a>联系我，你的头像和名字会在这里显示，以感谢你让它活得更久了一点。';
+    } else {
+        message.innerHTML = 'If you choose to donate, please contact me <a href="mailto:myfancoo@gmail.com">via email</a>, your profile picture and name will be displayed here to express gratitude for helping this website last a bit longer.';
     }
 }
 
