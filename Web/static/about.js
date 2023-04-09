@@ -93,27 +93,39 @@ function translateAboutPage() {
         const paragraphs = [
             {
                 selector: "blockquote",
-                text: "PodFind.xyz并非播客搜索引擎。"
+                text: "PodFind.xyz并非ChatGPT，也不是播客搜索引擎。"
             },
             {
                 selector: '.designed-for',
-                text: "事实上，我更希望它能帮助你获得新的认识。你可以："
+                text: "它是一个试图让你借助播客来获取新知的工具，你可以："
             },
             {
                 selector: "ul li:nth-of-type(1)",
-                text: "搜索关键词来了解Podcaster们对新事物或事件的看法，如硅谷银行、GPT-4。"
+                text: "搜索关键词来了解Podcaster们对新事物或事件的看法，如ChatGPT、孔乙己、影视作品。"
             },
             {
                 selector: "ul li:nth-of-type(2)",
-                text: "点击时间戳，可以只听你感兴趣的部分。"
+                text: "点击时间戳，可以只听你感兴趣的部分。部分作品没有时间戳，你可以通过筛选按钮切换。"
             },
             {
                 selector: ".why-podcast",
-                text: "从形式上，播客要求有录音设备、多人对谈，这既是某种过滤，也给深度观点交锋带来了可能性，所以我倾向于认为播客的信噪比(SNR)更高。"
+                text: "从形式上，播客要求有录音设备、多人对谈，这既是某种过滤，也给深度观点交锋带来了可能性，所以我倾向于认为播客的信噪比(SNR)更高，你可以了解最有想法的群体怎么看待新事物。"
             },
             {
                 selector: ".pure-free",
                 text: "没错！纯粹出于好玩，服务器会持续产生费用，所以你的捐赠会让它活得更久一点。"
+            },
+            {
+                selector: '.support-my-product',
+                text: "或者，你也可以支持我的其他产品(iOS)："
+            },
+            {
+                selector: ".support-my-product + ul li:nth-child(1) a",
+                text: "<a href='https://apps.apple.com/cn/app/id1664361663?platform=iphone' style='color:#ED784A;'>寻隐 - 用文字找照片</a>"
+            },
+            {
+                selector: ".support-my-product + ul li:nth-child(2) a",
+                text: "<a href='https://apps.apple.com/cn/app/id6447090616?platform=iphone' style='color:#ED784A;'>Whisper Notes - 离线、准确的语音识别</a>"
             },
             {
                 selector: ".future-plan",
@@ -121,7 +133,7 @@ function translateAboutPage() {
             },
             {
               selector: ".have-fun",
-              text: "总之，玩得开心！"
+              text: "总之，玩得开心！如果你想联系我：myfancoo@gmail.com"
             },
             {
                 selector: "p.mb-4.text-center",
