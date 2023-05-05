@@ -128,6 +128,10 @@ function translateAboutPage() {
                 text: "<a href='https://apps.apple.com/cn/app/id6447090616?platform=iphone' style='color:#ED784A;'>Whisper Notes - 离线、准确的语音识别</a>"
             },
             {
+                selector: ".support-my-product + ul li:nth-child(3) a",
+                text: "<a href='https://apps.apple.com/cn/app/id6447748965?platform=iphone' style='color:#ED784A;'>Dolores: 虚拟恋人</a>"
+            },
+            {
                 selector: ".future-plan",
                 text: "这个版本实在太简陋了，很多音频没有时间戳。将来(如果有钱)，我会添加<a href='https://github.com/openai/whisper' style='color:#ED784A;'>Whisper</a>为每一集构建时间戳，这样你搜任何关键词，都能直接只听与之有关的片段。"
             },
