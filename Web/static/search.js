@@ -279,10 +279,10 @@ function setTextLanguage() {
 
     if (userLang.startsWith("zh")) {
         scrollTextDiv.innerHTML = `
-            <p class="inline h-8 bg-blue-200 cursor-pointer mx-2" onclick="setFancySentence(event)">晚风说</p>
+            <p class="inline h-8 bg-blue-200 cursor-pointer mx-2" onclick="setFancySentence(event)">无人知晓</p>
             <p class="inline h-8 bg-purple-100 cursor-pointer mx-2" onclick="setFancySentence(event)">数字游民</p>
             <p class="inline h-8 bg-yellow-200 cursor-pointer mx-2" onclick="setFancySentence(event)">漫长的季节</p>
-            <p class="inline h-8 bg-red-200 cursor-pointer mx-2" onclick="setFancySentence(event)">塞尔达传说</p>
+            <p class="inline h-8 bg-red-200 cursor-pointer mx-2" onclick="setFancySentence(event)">AIGC</p>
             <p class="inline h-8 bg-gray-100 cursor-pointer mx-2" onclick="setFancySentence(event)">戛纳</p>
         `;
 
