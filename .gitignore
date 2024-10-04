@@ -1,0 +1,8 @@
+.idea/
+Web/package*json
+.DS_Store
+*/.DS_Store
+web.zip
+deploy.sh
+generate.sh
+.vercel

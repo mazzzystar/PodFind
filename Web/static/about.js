@@ -1,6 +1,6 @@
 function calculateServerCost() {
     const startDate = new Date("2023-03-15");
-    const dailyCost = 2.02;
+    const dailyCost = 0.72;
     const now = new Date();
     const differenceInTime = now.getTime() - startDate.getTime();
     const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24));
@@ -113,7 +113,7 @@ function translateAboutPage() {
             },
             {
                 selector: ".pure-free",
-                text: "没错！纯粹出于好玩，服务器会持续产生费用，所以你的捐赠会让它活得更久一点。"
+                text: "没错！纯粹出于好玩，服务器会持续产生费用，所以你的捐赠会让它活得更久一点。(2023/10更新：服务部署在Vercel上，已经不再有新费用了。)"
             },
             {
                 selector: '.support-my-product',
@@ -129,7 +129,7 @@ function translateAboutPage() {
             },
             {
                 selector: ".support-my-product + ul li:nth-child(3) a",
-                text: "<a href='https://apps.apple.com/cn/app/id6447748965?platform=iphone' style='color:#ED784A;'>Dolores: 虚拟恋人</a>"
+                text: "<a href='https://apps.apple.com/cn/app/id6447748965?platform=iphone' style='color:#ED784A;'>Dolores: 虚拟陪伴</a>"
             },
             {
                 selector: ".future-plan",

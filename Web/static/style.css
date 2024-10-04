@@ -20,20 +20,23 @@
 #scrollToTop {
   font-size: 2rem;
 }
+
 #scrollToTop:hover {
   color: #111;
 }
 
-input:checked ~ .toggle-bg {
-  background-color: #48bb78; /* Change this color for a different active background color */
+input:checked~.toggle-bg {
+  background-color: #48bb78;
+  /* Change this color for a different active background color */
 }
 
-input:checked ~ .toggle-dot {
+input:checked~.toggle-dot {
   transform: translateX(100%);
 }
 
 .toggle-dot {
-  top: -0.25rem; /* Updated position for better alignment */
+  top: -0.25rem;
+  /* Updated position for better alignment */
   left: -0.25rem;
   transition-property: transform, background-color;
 }
