@@ -1,6 +1,6 @@
 function calculateServerCost() {
     const startDate = new Date("2023-03-15");
-    const dailyCost = 0.72;
+    const dailyCost = 0.27;
     const now = new Date();
     const differenceInTime = now.getTime() - startDate.getTime();
     const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24));
