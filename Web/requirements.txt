@@ -1,3 +1,4 @@
-Flask
-Flask-Migrate
-flask_wtf
+Flask==2.0.1
+Flask-Migrate==3.1.0
+flask_wtf==1.0.0
+Werkzeug==2.0.1
