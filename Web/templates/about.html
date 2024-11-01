@@ -1,87 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About PodFind</title>
-    <link href="static/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/style.css">
-    <link rel="icon" type="image/png" href="static/favicon.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About PodFind</title>
+  <link href="static/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="icon" type="image/png" href="static/favicon.png" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QCP42KYKK7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QCP42KYKK7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-      gtag('config', 'G-QCP42KYKK7');
-    </script>
+    gtag('config', 'G-QCP42KYKK7');
+  </script>
 
-    <style>
-      .title {
-        text-align: center;
-        font-size: 2rem;
-        margin-top: 1rem;
-      }
+  <style>
+    .title {
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 1rem;
+    }
 
-      .colored-text {
-        display: inline;
-        font-weight: normal;
-        letter-spacing: 1px;
-      }
+    .colored-text {
+      display: inline;
+      font-weight: normal;
+      letter-spacing: 1px;
+    }
 
-      .colored-text span {
-        display: inline;
-      }
+    .colored-text span {
+      display: inline;
+    }
 
-      .c1 { color: #C1328E; }
-      .c2 { color: #FBE251; }
-      .c3 { color: #00896C; }
-      .c4 { color: #2EA9DF; }
+    .c1 {
+      color: #C1328E;
+    }
 
-      #donation-message a {
-        text-decoration: underline;
-      }
+    .c2 {
+      color: #FBE251;
+    }
 
-      .donate-button {
-        font-size: 1.2rem;
-        padding: 6px 12px;
-        background-color: #000;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        text-decoration: none;
-        display: inline-block;
-        margin-top: 0rem;
-      }
+    .c3 {
+      color: #00896C;
+    }
 
-      .donate-button:hover {
-        background-color: #333;
-      }
+    .c4 {
+      color: #2EA9DF;
+    }
 
-      .content-box {
-        background-color: #fff;
-        color: #000;
-        padding: 0.5rem;
-        border-radius: 0px;
-        box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.08);
-        margin-bottom: 1.5rem;
-      }
+    #donation-message a {
+      text-decoration: underline;
+    }
 
-      ul {
-        list-style-type: disc;
-        padding-left: 1rem;
-      }
+    .donate-button {
+      font-size: 1.2rem;
+      padding: 6px 12px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 0rem;
+    }
+
+    .donate-button:hover {
+      background-color: #333;
+    }
+
+    .content-box {
+      background-color: #fff;
+      color: #000;
+      padding: 0.5rem;
+      border-radius: 0px;
+      box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.08);
+      margin-bottom: 1.5rem;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 1rem;
+    }
 
     blockquote {
-        border-left: 4px solid #00AA90;
-        padding-left: 1rem;
-        margin: 1rem 0;
-        font-style: italic;
-        color: #333;
-        font-size: 1.0em;
+      border-left: 4px solid #00AA90;
+      padding-left: 1rem;
+      margin: 1rem 0;
+      font-style: italic;
+      color: #333;
+      font-size: 1.0em;
     }
 
     #server-cost {
@@ -108,61 +120,71 @@
 
     .qr-code {
       display: none;
-      max-width: 400px; /* Adjust this value to resize the QR code image */
+      max-width: 400px;
+      /* Adjust this value to resize the QR code image */
       margin: 1rem auto;
     }
+  </style>
 
-    </style>
-
-    <script src="static/about.js"></script>
+  <script src="static/about.js"></script>
 
 </head>
+
 <body class="bg-gradient-to-r from-green-200 via-green-300 to-green-400 min-h-screen flex flex-col">
-    <div class="title">
-        <a href="/"> PodFind<span class="colored-text"><span class="c1">.</span><span class="c2">x</span><span class="c3">y</span><span class="c4">z</span></span></a>
-    </div>
-<div class="container mx-auto px-4 sm:px-6 md:px-8 max-w-3xl py-8">
+  <div class="title">
+    <a href="/"> PodFind<span class="colored-text"><span class="c1">.</span><span class="c2">x</span><span
+          class="c3">y</span><span class="c4">z</span></span></a>
+  </div>
+  <div class="container mx-auto px-4 sm:px-6 md:px-8 max-w-3xl py-8">
     <div class="content-box">
-        <h2 class="text-xl font-semibold mb-3">1. Initial intention</h2>
-        <p class="mb-2">
-            <blockquote>
-                PodFind.xyz is not designed to be a podcast search engine.
-            </blockquote>
-            <p class="mb-2 designed-for">In fact, I would prefer it to be helping you gain new awareness. You can:</p>
-            <ul>
-                <li>Search to know the reaction, observation, and prediction of podcasters on a new event or technology, such as GPT-4, Bitcoin, SVB, etc.</li>
-                <li>Click on timestamps to get a bird's-eye view of how KOLs view and judge new events.</li>
-            </ul>
-        </p>
-        <p></p>
+      <h2 class="text-xl font-semibold mb-3">1. Initial intention</h2>
+      <p class="mb-2">
+      <blockquote>
+        PodFind.xyz is not designed to be a podcast search engine.
+      </blockquote>
+      <p class="mb-2 designed-for">In fact, I would prefer it to be helping you gain new awareness. You can:</p>
+      <ul>
+        <li>Search to know the reaction, observation, and prediction of podcasters on a new event or technology, such as
+          GPT-4, Bitcoin, SVB, etc.</li>
+        <li>Click on timestamps to get a bird's-eye view of how KOLs view and judge new events.</li>
+      </ul>
+      </p>
+      <p></p>
 
-        <h2 class="text-xl font-semibold mb-3">2. Why choose podcasts</h2>
-        <p class="mb-2 why-podcast">In terms of format, podcasts require recording equipment and multi-person conversations, which act as a filter and also provide possibilities for in-depth viewpoint exchanges. Therefore, I tend to believe that the signal-to-noise ratio(<bold>SNR</bold>) of podcasts is higher.</p>
+      <h2 class="text-xl font-semibold mb-3">2. Why choose podcasts</h2>
+      <p class="mb-2 why-podcast">In terms of format, podcasts require recording equipment and multi-person
+        conversations, which act as a filter and also provide possibilities for in-depth viewpoint exchanges. Therefore,
+        I tend to believe that the signal-to-noise ratio(<bold>SNR</bold>) of podcasts is higher.</p>
 
-        <h2 class="text-xl font-semibold mb-3">3. Free to use?</h2>
-        <p class="mb-2 pure-free">
-            Yes! It's purely for fun. Your donation will keep this site alive a little longer. (2023-10 Update: This service is now on Vercel, so no new server cost now.)
-        </p>
+      <h2 class="text-xl font-semibold mb-3">3. Free to use?</h2>
+      <p class="mb-2 pure-free">
+        Yes! It's purely for fun. Your donation will keep this site alive a little longer. (2023-10 Update: This service
+        is now on Vercel, so no new server cost now.)
+      </p>
 
-        <p class="mb-2 support-my-product">
-            Alternatively, you can support my other (iOS) products!
-        </p>
-        <ul>
-            <li><a href="https://queryable.app" style="color:#ED784A;">Queryable: Find Photo by Text</a></li>
-            <li><a href="https://dolores.app" style="color:#ED784A;">Dolores: Your Virtual Friend</a></li>
-            <li><a href="https://tanghenre.com" style="color:#ED784A;">AI海龟汤</a></li>
-            <li><a href="https://pingti.app" style="color:#ED784A;">最佳平替</a></li>
-            <li><a href="https://pingli.app" style="color:#ED784A;">分歧终端机 - 7个AI帮你们吵架评理</a></li>
-            <li><a href="https://whispernotes.app" style="color:#ED784A;">Whisper Notes: Offline Speech2Text</a></li>
-            <li><a href="https://blurid.app" style="color:#ED784A;">Blur ID - Auto Censor Faces & Names in Screenshots</a></li>
-            <li><a href="https://voicecalculator.app" style="color:#ED784A;">Voice Calculator - Best AI Voice Math Solver 2024</a></li>
-        </ul>
+      <p class="mb-2 support-my-product">
+        Alternatively, you can support my other (iOS) products!
+      </p>
+      <ul>
+        <li><a href="https://queryable.app" style="color:#ED784A;">Queryable: Find Photo by Text</a></li>
+        <li><a href="https://dolores.app" style="color:#ED784A;">Dolores: Your Virtual Friend</a></li>
+        <li><a href="https://tanghenre.com" style="color:#ED784A;">AI海龟汤</a></li>
+        <li><a href="https://pingti.app" style="color:#ED784A;">最佳平替</a></li>
+        <li><a href="https://pingli.app" style="color:#ED784A;">分歧终端机 - 7个AI帮你们吵架评理</a></li>
+        <li><a href="https://whispernotes.app" style="color:#ED784A;">Whisper Notes: Offline Speech2Text</a></li>
+        <li><a href="https://blurid.app" style="color:#ED784A;">Blur ID - Auto Censor Faces & Names in Screenshots</a>
+        </li>
+        <li><a href="https://voicecalculator.app" style="color:#ED784A;">Voice Calculator - Best AI Voice Math Solver
+            2024</a></li>
+      </ul>
 
-        <p></p>
+      <p></p>
 
-        <h2 class="text-xl font-semibold mb-3">4. Future plans</h2>
-        <p class="mb-2 future-plan">Many audio files don't have timestamps. In the future(if funds are available), I'll add <a href="https://github.com/openai/whisper" style="color:#ED784A;">Whisper</a> to build timestamp for every episode, so you can directly listen to relevant segments.</p>
-        <p class="mb-2 have-fun">Anyway, have fun! Contact: myfancoo@gmail.com</p>
+      <h2 class="text-xl font-semibold mb-3">4. Future plans</h2>
+      <p class="mb-2 future-plan">Many audio files don't have timestamps. In the future(if funds are available), I'll
+        add <a href="https://github.com/openai/whisper" style="color:#ED784A;">Whisper</a> to build timestamp for every
+        episode, so you can directly listen to relevant segments.</p>
+      <p class="mb-2 have-fun">Anyway, have fun! Contact: myfancoo@gmail.com</p>
     </div>
 
     <p class="mb-4 text-center">
@@ -170,22 +192,24 @@
     </p>
 
     <p id="donation-message" class="mb-4 text-center">
-        Your donation keeps this website alive. <a href="mailto:myfancoo@gmail.com">Email me</a> to display your name and avatar as thanks.
+      Your donation keeps this website alive. <a href="mailto:myfancoo@gmail.com">Email me</a> to display your name and
+      avatar as thanks.
     </p>
 
-    <div class="text-center">
-        <button onclick="showDonationOptions()" class="donate-button">Donate</button>
-    </div>
+    <!-- <div class="text-center">
+      <button onclick="showDonationOptions()" class="donate-button">Donate</button>
+    </div> -->
 
-    <div id="donation-methods" class="donation-methods">
-        <a href="#" onclick="showQRCode('alipay-qr')">支付宝</a>
-        <a href="https://www.paypal.me/immazzystar/" target="_blank">Paypal</a>
-    </div>
+    <!-- <div id="donation-methods" class="donation-methods">
+      <a href="#" onclick="showQRCode('alipay-qr')">支付宝</a>
+      <a href="https://www.paypal.me/immazzystar/" target="_blank">Paypal</a>
+    </div> -->
 
-    <div class="text-center">
-        <img id="alipay-qr" class="qr-code" src="static/QRCode/AlipayQRCode.jpg" alt="Alipay QR Code">
-    </div>
+    <!-- <div class="text-center">
+      <img id="alipay-qr" class="qr-code" src="static/QRCode/AlipayQRCode.jpg" alt="Alipay QR Code">
+    </div> -->
 
-</div>
+  </div>
 </body>
+
 </html>
