@@ -2,3 +2,4 @@ Flask==2.0.1
 Flask-Migrate==3.1.0
 flask_wtf==1.0.0
 Werkzeug==2.0.1
+python-dotenv==0.19.0

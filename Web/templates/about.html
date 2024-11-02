@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About PodFind</title>
-  <link href="static/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="static/style.css">
-  <link rel="icon" type="image/png" href="static/favicon.png" />
+  <link href="{{ url_for('static', filename='tailwind.min.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QCP42KYKK7"></script>
@@ -126,7 +126,7 @@
     }
   </style>
 
-  <script src="static/about.js"></script>
+  <script src="{{ url_for('static', filename='about.js') }}"></script>
 
 </head>
 
